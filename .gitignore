@@ -1,1 +1,49 @@
+# ------------------------
+# Python
+# ------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.log
+
+# Virtual environment
+venv/
+env/
+.venv/
+ENV/
+
+# Build / Packaging
+build/
+dist/
+*.egg-info/
+*.egg
+*.manifest
+*.spec
+
+# Jupyter
+.ipynb_checkpoints/
+
+# dotenv
 .env
+*.env
+
+# Cache
+*.cache/
+.cache/
+.pytest_cache/
+.mypy_cache/
+
+# IDEs
+# ------------------------
+# PyCharm
+.idea/
+
+# VSCode (optional)
+.vscode/
+
+# MacOS & Windows junk files
+.DS_Store
+Thumbs.db

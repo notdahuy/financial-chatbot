@@ -2,7 +2,7 @@
 from langchain.agents import create_agent
 from dotenv import load_dotenv
 from langchain.chat_models import init_chat_model
-from langchain_core.messages import HumanMessage
+from langchain_core.messages import HumanMessage, AIMessage
 
 from tools import get_stock_price, news_search_tool
 
@@ -17,10 +17,15 @@ agent = create_agent(
     system_prompt=SYSTEM_PROMPT,
 )
 
+chat_history = [
+    HumanMessage(content="Giá cổ phiếu Airbnb hôm qua là bao nhiêu?"),
+    AIMessage(content="118.56")
+]
+
+chat_history.append(HumanMessage(content="Có tin tức gì về tesla trong tuần này không?"))
+
 response = agent.invoke({
-    "messages": [
-        HumanMessage(content="Giá cổ phiếu Microsoft hiện tại là bao nhiêu?")
-    ]
+    "messages": chat_history
 })
 
 final_answer = response["messages"][-1].content

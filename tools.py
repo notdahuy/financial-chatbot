@@ -8,7 +8,10 @@ load_dotenv()
 
 @tool
 def get_stock_price(ticker_symbol: str) -> str:
-    """Get current stock price by ticker symbol"""
+    """
+    Get current stock price by ticker symbol
+    Use this tool ONLY when the user explicitly asks for stock prices.
+    """
     try:
         ticker = yf.Ticker(ticker_symbol)
         data = ticker.history(period="1d", interval="1m")
@@ -22,5 +25,9 @@ def get_stock_price(ticker_symbol: str) -> str:
 
 news_search_tool = TavilySearch(
     max_results=3,
-    description="Use this tool to search for news articles",
+    topic="finance",
+    description=(
+        "Search for the most recent news articles about a given company or keyword. "
+        "Use this tool ONLY when the user asks for news, updates, or recent information."
+    ),
 )
